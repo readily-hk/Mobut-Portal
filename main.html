@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v7-評改作文-(限時免費)</title>
+    <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100" x-data="{ activeSection: 'section1', open: true }">
+    <!-- Sidebar -->
+    <div class="flex fixed top-0 z-50 h-screen">
+      <!-- Static Column -->
+      <div
+        class="relative flex flex-col items-center bg-[#F5FAF6FF] h-screen w-16"
+      >
+        <!-- Icons (Placeholder for actual icons) -->
+        <div
+          @click="open = !open"
+          class="p-4 cursor-pointer transition-transform transform duration-300"
+          :class="open ? 'rotate-180' : ''"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </div>
+
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section1'">
+          <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section2'">
+          <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section3'">
+          <img src="assets/file.svg" alt="File" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section4'">
+          <img src="assets/document.svg" alt="Document" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section5'">
+          <img src="assets/light.svg" alt="Light" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section6'">
+          <img src="assets/pencil.svg" alt="Pencil" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section7'">
+          <img src="assets/wad.svg" alt="Wad" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section8'">
+          <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
+        </div>
+        <div class="p-4 cursor-pointer" @click="activeSection = 'section9'">
+          <img src="assets/upload.svg" alt="Upload" class="w-5 h-5" />
+        </div>
+      </div>
+
+      <!-- Expandable Sidebar -->
+      <div
+        x-show="open"
+        x-bind:class="open ? 'fixed inset-y-0 left-0 w-64 bg-[#F5FAF6FF] border-r border-gray-200 transition-width duration-300 shadow-lg overflow-hidden' : 'hidden'"
+        class="h-screen overflow-auto flex flex-col p-6"
+      >
+        <button
+          @click="open = false"
+          class="absolute top-0 right-0 m-4 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-transform transform hover:rotate-90 duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div class="flex items-center justify-center mb-6">
+          <a href="#main-content">
+            <img src="assets/logo1.png" alt="Logo" class="w-20" />
+          </a>
+        </div>
+        <!-- Main Features -->
+        <div class="mb-6">
+          <h2 class="text-gray-400 mb-4 text-xs">主要功能</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                href="#v7-評改作文-(限時免費)"
+                class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section1'"
+              >
+                <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+                <span class="ml-2 text-sm font-bold"
+                  >v7 評改作文 (限時免費)</span
+                >
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#v7-評改作文"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section2'"
+              >
+                <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
+                <span class="ml-2 text-sm">v7 評改作文</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#課文分析"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section3'"
+              >
+                <img src="assets/file.svg" alt="File" class="w-5 h-5" />
+                <span class="ml-2 text-sm">課文分析</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#範文生成"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section4'"
+              >
+                <img src="assets/document.svg" alt="Document" class="w-5 h-5" />
+                <span class="ml-2 text-sm">範文生成</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#審題提示"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section5'"
+              >
+                <img src="assets/light.svg" alt="Light" class="w-5 h-5" />
+                <span class="ml-2 text-sm">審題提示</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#實用文"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section6'"
+              >
+                <img src="assets/pencil.svg" alt="Pencil" class="w-5 h-5" />
+                <span class="ml-2 text-sm">實用文</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#修辭例句"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section7'"
+              >
+                <img src="assets/wad.svg" alt="Wad" class="w-5 h-5" />
+                <span class="ml-2 text-sm">修辭例句</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Platform Features -->
+        <div>
+          <h2 class="text-gray-400 mb-4 text-xs">巫筆學生作文總交平台</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                href="#老師表格創建"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section8'"
+              >
+                <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
+                <span class="ml-2 text-sm">老師表格創建</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#學生作文表格提交"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section9'"
+              >
+                <img src="assets/upload.svg" alt="Upload" class="w-5 h-5" />
+                <span class="ml-2 text-sm">學生作文表格提交</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div
+      id="main-content"
+      :class="open ? 'flex-1 p-2 ml-64 transition-margin duration-300 ' : 'flex-1 p-2 ml-16 transition-margin duration-300'"
+    >
+      <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
+      <body class="min-h-screen">
+        <div class="h-screen">
+          <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
+          <div x-show="activeSection === 'section1'" class="p-2 h-full">
+            <h2 class="text-3xl font-bold">v7 評改作文 (限時免費)</h2>
+            <iframe
+              src="https://trial.mo-but.com/"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section2'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">v7 評改作文</h2>
+            <iframe
+              src="https://tally.so/r/nP6DZP"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section3'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">課文分析</h2>
+            <iframe
+              src="https://tally.so/r/mOPKqg"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section4'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">範文生成</h2>
+            <iframe
+              src="https://tally.so/r/3xQLzd"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section5'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">審題提示</h2>
+            <iframe
+              src="https://tally.so/r/mOPKxg"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section6'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">實用文</h2>
+            <iframe
+              src="https://tally.so/r/nG1aPZ"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div x-show="activeSection === 'section7'" class="p-2 h-full">
+            <h2 class="text-3xl font-bold">修辭例句</h2>
+            <iframe
+              src="https://tally.so/r/waxXMB"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div x-show="activeSection === 'section8'" class="p-2 h-full">
+            <h2 class="text-3xl font-bold">老師表格創建</h2>
+            <iframe
+              src="https://teacher.mo-but.com/"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section9'"
+            class="p-2 h-full overflow-hidden"
+          >
+            <h2 class="text-3xl font-bold">學生作文表格提交</h2>
+            <iframe
+              src="https://student.mo-but.com/"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+        </div>
+      </body>
+    </div>
+  </body>
+</html>
