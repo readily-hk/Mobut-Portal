@@ -35,7 +35,35 @@
             />
           </svg>
         </div>
+        <div
+          class="p-4 cursor-pointer"
+          @click="activeSection = 'section10'"
+          title="首頁"
+        >
+          <img src="assets/home.svg" alt="File" class="w-5 h-5" />
+        </div>
+        <div
+          class="p-4 cursor-pointer"
+          @click="activeSection = 'section1'"
+          title="v7 評改作文 (限時免費)"
+        >
+          <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+        </div>
+        <div
+          class="p-4 cursor-pointer"
+          @click="activeSection = 'section2'"
+          title="v7 評改作文"
+        >
+          <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
+        </div>
 
+        <div
+          class="p-4 cursor-pointer"
+          @click="activeSection = 'section8'"
+          title="老師創建表格"
+        >
+          <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
+        </div>
         <div
           class="p-4 cursor-pointer"
           @click="activeSection = 'section3'"
@@ -71,45 +99,7 @@
         >
           <img src="assets/wad.svg" alt="Wad" class="w-6 h-6" />
         </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section1'"
-          title="v7 評改作文 (限時免費)"
-        >
-          <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section11'"
-          title="v7 評改作文"
-        >
-          <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section2'"
-          title="題目庫"
-        >
-          <img
-            src="assets/questionBank.svg"
-            alt="questionBank"
-            class="w-5 h-5"
-          />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section8'"
-          title="老師創建表格"
-        >
-          <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section12'"
-          title="教材資源"
-        >
-          <img src="assets/searchingpaper.svg" alt="Upload" class="w-5 h-5" />
-        </div>
+
         <div
           class="p-4 cursor-pointer"
           @click="activeSection = 'section13'"
@@ -122,7 +112,7 @@
       <!-- Expandable Sidebar -->
       <div
         x-show="open"
-        x-bind:class="open ? 'fixed inset-y-0 left-0 w-64 bg-[#F5FAF6FF] border-r border-gray-200 transition-width duration-300 shadow-lg overflow-y-auto' : 'hidden'"
+        x-bind:class="open ? 'fixed inset-y-0 left-0 md:w-64 w-full bg-[#F5FAF6FF] border-r border-gray-200 transition-width duration-300 shadow-lg overflow-y-auto' : 'hidden'"
         class="h-screen flex flex-col p-6"
       >
         <button
@@ -150,6 +140,59 @@
           </a>
         </div>
         <!-- Main Features -->
+        <ul class="mb-6">
+          <li class="mb-2">
+            <a
+              href="#首頁"
+              class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+              @click="activeSection = 'section10'"
+            >
+              <img src="assets/home.svg" alt="File" class="w-5 h-5" />
+              <span class="ml-2 text-sm">首頁</span>
+            </a>
+          </li>
+        </ul>
+        <!-- 課堂後寫作評改工具 -->
+        <div class="mb-6">
+          <h2 class="text-gray-400 mb-4 text-xs">課堂後寫作評改工具</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                href="#v7-評改作文-(限時免費)"
+                class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section1'"
+              >
+                <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+                <span class="ml-2 text-sm font-bold"
+                  >v7 評改作文 (限時免費)</span
+                >
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#v7-評改作文"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section2'"
+              >
+                <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
+                <span class="ml-2 text-sm">v7 評改作文</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="mb-2">
+              <a
+                href="#老師創建表格"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section8'"
+              >
+                <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
+                <span class="ml-2 text-sm">老師創建表格</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- 課堂前寫作評改工具 -->
         <div class="mb-6">
           <h2 class="text-gray-400 mb-4 text-xs">課堂前寫作教材準備工具</h2>
           <ul>
@@ -205,78 +248,11 @@
             </li>
           </ul>
         </div>
-        <!-- 課堂後寫作評改工具 -->
-        <div class="mb-6">
-          <h2 class="text-gray-400 mb-4 text-xs">課堂後寫作評改工具</h2>
-          <ul>
-            <li class="mb-2">
-              <a
-                href="#v7-評改作文-(限時免費)"
-                class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section1'"
-              >
-                <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
-                <span class="ml-2 text-sm font-bold"
-                  >v7 評改作文 (限時免費)</span
-                >
-              </a>
-            </li>
-            <li class="mb-2">
-              <a
-                href="#v7-評改作文"
-                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section2'"
-              >
-                <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
-                <span class="ml-2 text-sm">v7 評改作文</span>
-              </a>
-            </li>
-            <li class="mb-2">
-              <a
-                href="#題目庫"
-                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section11'"
-              >
-                <img src="assets/questionBank.svg" alt="bank" class="w-5 h-5" />
-                <span class="ml-2 text-sm">題目庫</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- Platform Features -->
-        <div class="mb-6">
-          <h2 class="text-gray-400 mb-4 text-xs">巫筆學生作文繳交平台</h2>
-          <ul>
-            <li class="mb-2">
-              <a
-                href="#老師創建表格"
-                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section8'"
-              >
-                <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
-                <span class="ml-2 text-sm">老師創建表格</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+
         <!-- 其他資源 -->
         <div>
           <h2 class="text-gray-400 mb-4 text-xs">其他資源</h2>
           <ul>
-            <li class="mb-2">
-              <a
-                href="#教材資源"
-                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section12'"
-              >
-                <img
-                  src="assets/searchingpaper.svg"
-                  alt="searchingpaper"
-                  class="w-5 h-5"
-                />
-                <span class="ml-2 text-sm">教材資源</span>
-              </a>
-            </li>
             <li class="mb-2">
               <a
                 href="#常見問題"
@@ -299,14 +275,13 @@
     <!-- Main Content -->
     <div
       id="main-content"
-      :class="open ? 'flex-1 p-2 ml-64 transition-margin duration-300 ' : 'flex-1 p-2 ml-16 transition-margin duration-300'"
+      :class="open ? 'flex-1 ml-64 transition-margin duration-300 ' : 'flex-1 ml-16 transition-margin duration-300'"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
       <body class="min-h-screen">
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
-          <div x-show="activeSection === 'section1'" class="p-2 h-full">
-            <h2 class="text-3xl font-bold">v7 評改作文 (限時免費)</h2>
+          <div x-show="activeSection === 'section1'" class="h-full">
             <iframe
               src="https://trial.mo-but.com/"
               class="w-full h-screen"
@@ -318,7 +293,7 @@
           </div>
           <div
             x-show="activeSection === 'section2'"
-            class="p-2 h-full overflow-hidden"
+            class="h-full overflow-hidden"
           >
             <iframe
               src="https://tally.so/r/nP6DZP"
@@ -331,7 +306,7 @@
           </div>
           <div
             x-show="activeSection === 'section3'"
-            class="p-2 h-full overflow-hidden"
+            class="h-full overflow-hidden"
           >
             <iframe
               src="https://tally.so/r/mOPKqg"
@@ -344,7 +319,7 @@
           </div>
           <div
             x-show="activeSection === 'section4'"
-            class="p-2 h-full overflow-hidden"
+            class="h-full overflow-hidden"
           >
             <iframe
               src="https://tally.so/r/3xQLzd"
@@ -357,7 +332,7 @@
           </div>
           <div
             x-show="activeSection === 'section5'"
-            class="p-2 h-full overflow-hidden"
+            class="h-full overflow-hidden"
           >
             <iframe
               src="https://tally.so/r/mOPKxg"
@@ -370,7 +345,7 @@
           </div>
           <div
             x-show="activeSection === 'section6'"
-            class="p-2 h-full overflow-hidden"
+            class="h-full overflow-hidden"
           >
             <iframe
               src="https://tally.so/r/nG1aPZ"
@@ -381,7 +356,7 @@
               >Loading…</iframe
             >
           </div>
-          <div x-show="activeSection === 'section7'" class="p-2 h-full">
+          <div x-show="activeSection === 'section7'" class="h-full">
             <iframe
               src="https://tally.so/r/waxXMB"
               class="w-full h-screen"
@@ -391,8 +366,8 @@
               >Loading…</iframe
             >
           </div>
-          <div x-show="activeSection === 'section8'" class="p-2 h-full">
-            <h2 class="text-3xl font-bold">老師創建表格</h2>
+          <!--Section 8: 老師創建表格-->
+          <div x-show="activeSection === 'section8'" class="h-full">
             <iframe
               src="https://teacher.mo-but.com/"
               class="w-full h-screen"
@@ -402,7 +377,7 @@
               >Loading…</iframe
             >
           </div>
-
+          <!--Section 10: Main Page-->
           <div x-show="activeSection === 'section10'" class="p-10 h-full">
             <!-- Main Content Area -->
             <div class="flex flex-col space-y-4">
@@ -421,452 +396,376 @@
               </div>
               <!-- big wrapper -->
               <div class="mb-8">
-                <!-- 課堂前寫作教材準備工具 wrapper-->
-                <div class="flex flex-col space-y-4 font-bold pb-5">
-                  課堂前寫作教材準備工具
-                </div>
-                <!-- 課堂前寫作教材準備工具 wrapper -->
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4"
-                >
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img
-                        src="assets/document.svg"
-                        alt="Logo"
-                        class="w-5 h-5"
-                      />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">範文生成</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          通過輸入寫作題目、學習重點、學習年紀便能自動生成最適合課程要求的寫作參考範文
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#範文生成"
-                          #範文生成
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section4'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img src="assets/file.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">課文分析</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          總結文章的修辭手法及從內容和技巧分析並生成段落大意&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#課文分析"
-                          #課文分析
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section3'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img src="assets/light.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">審題提示</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          提供解題思路和題解參考，幫助學生掌握寫作策略&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#審題提示"
-                          #審題提示
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section5'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img src="assets/pen1.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">實用文</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          根據2024DSE評核大綱，針對實用文考核部分生成題目及閱讀材料，以及相應範文
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#實用文"
-                          #實用文
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section6'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img src="assets/wad.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">修辭例句</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          通過輸入寫作題目、學習重點、學習年級便能自動生成最適合課程要求的修辭例句
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#修辭例句"
-                          #修辭例句
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section7'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
                 <!-- 課堂後寫作評改工具 wrapper-->
-                <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
-                  課堂後寫作評改工具
-                </div>
-                <!-- 課堂後寫作評改工具 wrapper -->
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img src="assets/clock.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">
-                          v7評改作文（限時免費）
-                        </div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          提供一次性免費批改服務，附個人表現報告、總評、引導問題、重點修改及個人化改寫練習
-                        </div>
-                      </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#v7評改作文（限時免費）"
-                          #v7評改作文（限時免費）
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section1'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
-                    </div>
+                <div>
+                  <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
+                    課堂後寫作評改工具
                   </div>
+                  <!-- 課堂後寫作評改工具 wrapper -->
                   <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4"
                   >
-                    <!-- Logo with green background -->
                     <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
-                      <img src="assets/pen.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/clock.svg"
+                          alt="Logo"
+                          class="w-5 h-5"
+                        />
+                      </div>
 
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">v7評改作文</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          為每篇學生作文提供獨立報告，包含總評、引導問題、重點修改及個人化改寫練習
-                          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">
+                            v7評改作文（限時免費）
+                          </div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            提供一次性免費批改服務，附個人表現報告、總評、引導問題、重點修改及個人化改寫練習
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#v7評改作文（限時免費）"
+                            #v7評改作文（限時免費）
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section1'"
+                          >
+                            前往 &gt;
+                          </a>
                         </div>
                       </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#v7評改作文"
-                          #v7評改作文
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section2'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
                     </div>
-                  </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
                     <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
-                      <img
-                        src="assets/questionBank.svg"
-                        alt="Logo"
-                        class="w-5 h-5"
-                      />
-                    </div>
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img src="assets/pen.svg" alt="Logo" class="w-5 h-5" />
+                      </div>
 
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">題目庫</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          包含多年中文公開試題及校本試題，提供豐富的寫作題目供學生練習
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">v7評改作文</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            為每篇學生作文提供獨立報告，包含總評、引導問題、重點修改及個人化改寫練習
+                            &emsp;&emsp;&emsp;&emsp;&emsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#v7評改作文"
+                            #v7評改作文
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section2'"
+                          >
+                            前往 &gt;
+                          </a>
                         </div>
                       </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#題目庫"
-                          #題目庫
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section11'"
-                        >
-                          前往 &gt;
-                        </a>
-                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
-                  巫筆學生作文繳交平台
-                </div>
-                <!-- 巫筆學生作文繳交平台 wrapper -->
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
                     <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
-                      <img src="assets/grid.svg" alt="Logo" class="w-5 h-5" />
-                    </div>
-
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">老師創建表格</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          老師創建表格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </div>
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img src="assets/grid.svg" alt="Logo" class="w-5 h-5" />
                       </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#老師創建表格"
-                          #老師創建表格
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section8'"
-                        >
-                          前往 &gt;
-                        </a>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">老師創建表格</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            老師創建表格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#老師創建表格"
+                            #老師創建表格
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section8'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- 其他資源 wrapper-->
-                <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
-                  其他資源
-                </div>
-                <!-- 其他資源 wrapper -->
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                >
+                <!-- 課堂前寫作教材準備工具 wrapper-->
+                <div>
+                  <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
+                    課堂前寫作教材準備工具
+                  </div>
+                  <!-- 課堂前寫作教材準備工具 wrapper -->
                   <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4"
                   >
-                    <!-- Logo with green background -->
                     <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
-                      <img
-                        src="assets/questionmark.svg"
-                        alt="Logo"
-                        class="w-5 h-5"
-                      />
-                    </div>
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/document.svg"
+                          alt="Logo"
+                          class="w-5 h-5"
+                        />
+                      </div>
 
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">常見問題</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          提供一次性免費批改服務，附個人表現報告、總評、引導問題、重點修改及個人化改寫練習
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">範文生成</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            通過輸入寫作題目、學習重點、學習年紀便能自動生成最適合課程要求的寫作參考範文
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#範文生成"
+                            #範文生成
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section4'"
+                          >
+                            前往 &gt;
+                          </a>
                         </div>
                       </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#常見問題"
-                          #常見問題
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section13'"
-                        >
-                          前往 &gt;
-                        </a>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img src="assets/file.svg" alt="Logo" class="w-5 h-5" />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">課文分析</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            總結文章的修辭手法及從內容和技巧分析並生成段落大意&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#課文分析"
+                            #課文分析
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section3'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/light.svg"
+                          alt="Logo"
+                          class="w-5 h-5"
+                        />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">審題提示</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            提供解題思路和題解參考，幫助學生掌握寫作策略&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#審題提示"
+                            #審題提示
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section5'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img src="assets/pen1.svg" alt="Logo" class="w-5 h-5" />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">實用文</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            根據2024DSE評核大綱，針對實用文考核部分生成題目及閱讀材料，以及相應範文
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#實用文"
+                            #實用文
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section6'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img src="assets/wad.svg" alt="Logo" class="w-5 h-5" />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">修辭例句</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            通過輸入寫作題目、學習重點、學習年級便能自動生成最適合課程要求的修辭例句
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#修辭例句"
+                            #修辭例句
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section7'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                  >
-                    <!-- Logo with green background -->
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                      style="background-color: #c8e6b8ff"
-                    >
-                      <img
-                        src="assets/searchingpaper.svg"
-                        alt="Logo"
-                        class="w-5 h-5"
-                      />
-                    </div>
+                </div>
 
-                    <!-- Content on the right: Title, Description, and Go Button -->
-                    <div class="w-full">
-                      <div class="text-left mb-2">
-                        <!-- Title -->
-                        <div class="font-bold text-sm mb-2">教材資源</div>
-                        <!-- Description with line clamp -->
-                        <div class="text-xs line-clamp-3 text-gray-400">
-                          提供
-                        </div>
+                <div>
+                  <!-- 其他資源 wrapper-->
+                  <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
+                    其他資源
+                  </div>
+                  <!-- 其他資源 wrapper -->
+                  <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4"
+                  >
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/questionmark.svg"
+                          alt="Logo"
+                          class="w-5 h-5"
+                        />
                       </div>
-                      <!-- Go Button -->
-                      <div class="text-right">
-                        <a
-                          href="#課文分析"
-                          #課文分析
-                          class="p-2 hover:bg-green-600 rounded text-xs border"
-                          style="color: #c8e6b8ff; border-color: #c8e6b8ff"
-                          @click="activeSection = 'section3'"
-                        >
-                          前往 &gt;
-                        </a>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">常見問題</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            提供一次性免費批改服務，附個人表現報告、總評、引導問題、重點修改及個人化改寫練習
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#常見問題"
+                            #常見問題
+                            class="p-2 hover:bg-green-600 rounded text-xs border"
+                            style="color: #c8e6b8ff; border-color: #c8e6b8ff"
+                            @click="activeSection = 'section13'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -875,6 +774,62 @@
 
               <div></div>
             </div>
+          </div>
+          <!-- Section 13: 常見問題 -->
+          <div x-show="activeSection === 'section13'" class="p-10 h-full">
+            <body>
+              <h2 class="text-2xl font-bold mb-4">常見問題 😯</h2>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  01. 有了「巫筆」後，教師的角色是什麼？
+                </h3>
+                <p class="text-gray-600">
+                  「巫筆」的定位是「教學輔助工具」，永遠無法取代教師。但有了「巫筆」後，教師能較容易給予個人化評語，而寫作課業也能夠有所跟進，讓學生多寫多練，更能夠提升寫作教學成效。
+                </p>
+              </div>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  02. 如「巫筆」報告結果不準確，或遇技術困難，應如何處理?
+                </h3>
+                <p class="text-gray-600">
+                  因「巫筆」仍在測試階段，尚待前線教師的專業意見，分享其教學成效。如學校於全級/全校使用，「巫筆」會提供專屬技術支援，如有掃描結果或評語不準確，謹此致歉，歡迎聯絡敝司職員。
+                </p>
+              </div>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  03. 學生能使用「巫筆」嗎?
+                </h3>
+                <p class="text-gray-600">
+                  目前「巫筆」是「教學輔助工具」，供教師備課及進行寫作評估之用，惟會因應學校需要，開放給學生直接使用。
+                </p>
+              </div>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  04. 有了「巫筆」之後，教師仍需要批改作文嗎?
+                </h3>
+                <p class="text-gray-600">
+                  「巫筆」只是小工具，能夠給予相對準確的評語，老師可以此為基礎修訂，加入眉批，並無法完全取代教師。而且，「巫筆」雖然能夠提供參考分數，但教師亦須作最後把關，並批改後續寫作跟進練習。
+                </p>
+              </div>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  05. 學生上載作文有困難，怎麼辦?
+                </h3>
+                <p class="text-gray-600">
+                  「巫筆」有提供作文上載指引，教師可根據指引指示學生上載作文，製作批改報告。
+                </p>
+              </div>
+              <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                  06. 如果學校需要使用「巫筆」，應怎樣用最好?
+                </h3>
+                <p class="text-gray-600">
+                  教學方法千變萬化，因應校情不同，「巫筆」的使用方式也可不同。例如讓學生純自學，教師不會檢閱
+                  AI
+                  評語，讓學生自行消化而從中改進，不一而足。學校可與「巫筆」聘來的顧問進行會談，討論如何在學校開展人工智能批改計畫。
+                </p>
+              </div>
+            </body>
           </div>
         </div>
       </body>
