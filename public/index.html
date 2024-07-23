@@ -35,77 +35,60 @@
             />
           </svg>
         </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section10'"
-          title="首頁"
-        >
-          <img src="assets/home.svg" alt="File" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section1'"
-          title="v7 評改作文 (限時免費)"
-        >
-          <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section2'"
-          title="v7 評改作文"
-        >
-          <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
+        <!--首頁 static bar-->
+        <div class="p-4 cursor-pointer" title="首頁">
+          <a href="#首頁" @click="activeSection = 'section10'">
+            <img src="assets/home.svg" alt="File" class="w-5 h-5" />
+          </a>
         </div>
 
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section8'"
-          title="老師創建表格"
-        >
-          <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section3'"
-          title="課文分析"
-        >
-          <img src="assets/file.svg" alt="File" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section4'"
-          title="範文生成"
-        >
-          <img src="assets/document.svg" alt="Document" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section5'"
-          title="審題提示"
-        >
-          <img src="assets/light.svg" alt="Light" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section6'"
-          title="實用文"
-        >
-          <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5" />
-        </div>
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section7'"
-          title="修辭例句"
-        >
-          <img src="assets/wad.svg" alt="Wad" class="w-6 h-6" />
+        <div class="p-4 cursor-pointer" title="v7 評改作文 (限時免費)">
+          <a href="#v7-評改作文-(限時免費)" @click="activeSection = 'section1'">
+            <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+          </a>
         </div>
 
-        <div
-          class="p-4 cursor-pointer"
-          @click="activeSection = 'section13'"
-          title="常見問題"
-        >
-          <img src="assets/questionmark.svg" alt="Upload" class="w-5 h-5" />
+        <div class="p-4 cursor-pointer" title="v7 評改作文">
+          <a href="#v7-評改作文" @click="activeSection = 'section2'">
+            <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
+          </a>
+        </div>
+        <div class="p-4 cursor-pointer" title="老師創建表格">
+          <a href="#老師創建表格" @click="activeSection = 'section8'">
+            <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="課文分析">
+          <a href="#課文分析" @click="activeSection = 'section3'">
+            <img src="assets/file.svg" alt="File" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="範文生成">
+          <a href="#範文生成" @click="activeSection = 'section4'">
+            <img src="assets/document.svg" alt="Document" class="w-5 h-5"
+          /></a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="審題提示">
+          <a href="#審題提示" @click="activeSection = 'section5'">
+            <img src="assets/light.svg" alt="Light" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="實用文">
+          <a href="#實用文" @click="activeSection = 'section6'">
+            <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="修辭例句">
+          <a href="#修辭例句" @click="activeSection = 'section7'">
+            <img src="assets/wad.svg" alt="Wad" class="w-6 h-6"
+          /></a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="常見問題">
+          <a href="#常見問題" @click="activeSection = 'section13'">
+            <img src="assets/questionmark.svg" alt="Upload" class="w-5 h-5"
+          /></a>
         </div>
       </div>
 
@@ -135,7 +118,7 @@
           </svg>
         </button>
         <div class="flex items-center justify-center mb-6">
-          <a href="#main-content" @click.prevent="activeSection = 'section10';">
+          <a href="#首頁" @click.prevent="activeSection = 'section10';">
             <img src="assets/logo1.png" alt="Logo" class="w-20" />
           </a>
         </div>
@@ -145,7 +128,7 @@
             <a
               href="#首頁"
               class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-              @click="activeSection = 'section10'"
+              @click="activeSection = 'section10', window.innerWidth < 768 ? open = false : null"
             >
               <img src="assets/home.svg" alt="File" class="w-5 h-5" />
               <span class="ml-2 text-sm">首頁</span>
@@ -160,7 +143,7 @@
               <a
                 href="#v7-評改作文-(限時免費)"
                 class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section1'"
+                @click="activeSection = 'section1', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
                 <span class="ml-2 text-sm font-bold"
@@ -172,7 +155,7 @@
               <a
                 href="#v7-評改作文"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section2'"
+                @click="activeSection = 'section2', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
                 <span class="ml-2 text-sm">v7 評改作文</span>
@@ -184,7 +167,7 @@
               <a
                 href="#老師創建表格"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section8'"
+                @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
                 <span class="ml-2 text-sm">老師創建表格</span>
@@ -200,7 +183,7 @@
               <a
                 href="#課文分析"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section3'"
+                @click="activeSection = 'section3', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/file.svg" alt="File" class="w-5 h-5" />
                 <span class="ml-2 text-sm">課文分析</span>
@@ -210,7 +193,7 @@
               <a
                 href="#範文生成"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section4'"
+                @click="activeSection = 'section4', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/document.svg" alt="Document" class="w-5 h-5" />
                 <span class="ml-2 text-sm">範文生成</span>
@@ -220,7 +203,7 @@
               <a
                 href="#審題提示"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section5'"
+                @click="activeSection = 'section5', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/light.svg" alt="Light" class="w-5 h-5" />
                 <span class="ml-2 text-sm">審題提示</span>
@@ -230,7 +213,7 @@
               <a
                 href="#實用文"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section6'"
+                @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5" />
                 <span class="ml-2 text-sm">實用文</span>
@@ -240,7 +223,7 @@
               <a
                 href="#修辭例句"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section7'"
+                @click="activeSection = 'section7', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/wad.svg" alt="Wad" class="w-6 h-6" />
                 <span class="ml-2 text-sm">修辭例句</span>
@@ -257,7 +240,7 @@
               <a
                 href="#常見問題"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
-                @click="activeSection = 'section13'"
+                @click="activeSection = 'section13', window.innerWidth < 768 ? open = false : null"
               >
                 <img
                   src="assets/questionmark.svg"
@@ -461,7 +444,9 @@
                       <div class="w-full">
                         <div class="text-left mb-2">
                           <!-- Title -->
-                          <div class="font-bold text-sm mb-2">v7評改作文</div>
+                          <div class="font-bold text-sm mb-2">
+                            v7評改作文【老師上載】
+                          </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
                             為每篇學生作文提供獨立報告，包含總評、引導問題、重點修改及個人化改寫練習
@@ -471,7 +456,7 @@
                         <!-- Go Button -->
                         <div class="text-right">
                           <a
-                            href="#v7評改作文"
+                            href="#v7評改作文【老師上載】"
                             #v7評改作文
                             class="p-2 hover:bg-green-600 rounded text-xs border"
                             style="color: #c8e6b8ff; border-color: #c8e6b8ff"
@@ -497,19 +482,21 @@
                       <div class="w-full">
                         <div class="text-left mb-2">
                           <!-- Title -->
-                          <div class="font-bold text-sm mb-2">老師創建表格</div>
+                          <div class="font-bold text-sm mb-2">
+                            老師創建表格【學生上載】
+                          </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
-                            老師創建表格&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            老師創建表格
+                            學生上載老師可創建批改任務，讓學生透過專屬連結呈交作文供「巫筆」批改。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           </div>
                         </div>
                         <!-- Go Button -->
                         <div class="text-right">
                           <a
-                            href="#老師創建表格"
-                            #老師創建表格
+                            href="#老師創建表格【學生上載】"
+                            #老師創建表格【學生上載】
                             class="p-2 hover:bg-green-600 rounded text-xs border"
                             style="color: #c8e6b8ff; border-color: #c8e6b8ff"
                             @click="activeSection = 'section8'"
