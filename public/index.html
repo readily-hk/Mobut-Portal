@@ -58,6 +58,11 @@
             <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
           /></a>
         </div>
+        <div class="p-4 cursor-pointer" title="片段寫作">
+          <a href="#片段寫作" @click="activeSection = 'section11'">
+            <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
+          /></a>
+        </div>
         <div class="p-4 cursor-pointer" title="課文分析">
           <a href="#課文分析" @click="activeSection = 'section3'">
             <img src="assets/file.svg" alt="File" class="w-5 h-5"
@@ -164,8 +169,6 @@
                 <span class="ml-2 text-sm">v7 評改作文</span>
               </a>
             </li>
-          </ul>
-          <ul>
             <li class="mb-2">
               <a
                 href="#老師創建表格"
@@ -174,6 +177,16 @@
               >
                 <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
                 <span class="ml-2 text-sm">老師創建表格</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#片段寫作"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5" />
+                <span class="ml-2 text-sm">片段寫作</span>
               </a>
             </li>
           </ul>
@@ -309,6 +322,19 @@
           >
             <iframe
               src="https://tally.so/r/3xQLzd"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div>
+          <div
+            x-show="activeSection === 'section11'"
+            class="h-full overflow-hidden"
+          >
+            <iframe
+              src="https://tally.so/r/w2reeb"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -496,7 +522,7 @@
                           </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
-                            學生上載老師可創建批改任務，讓學生透過專屬連結呈交作文供「巫筆」批改。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            老師可創建批改任務，讓學生透過專屬連結呈交作文供「巫筆」批改。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                           </div>
                         </div>
@@ -511,6 +537,49 @@
                               border-color: rgb(70, 103, 53);
                             "
                             @click="activeSection = 'section8'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/aipaper.svg"
+                          alt="Logo"
+                          class="w-5 h-5"
+                        />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">片段寫作</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            片段寫作能配合課堂學習重點和促進單元能力訓練。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#片段寫作"
+                            #片段寫作
+                            class="p-2 hover:bg-green-100 rounded text-xs border"
+                            style="
+                              color: rgb(70, 103, 53);
+                              border-color: rgb(70, 103, 53);
+                            "
+                            @click="activeSection = 'section11'"
                           >
                             前往 &gt;
                           </a>
