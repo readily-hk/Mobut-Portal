@@ -7,7 +7,6 @@
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <link rel="icon" type="assets/logo1.png" href="assets/logo1.png" />
   <body class="bg-white" x-data="{ activeSection: 'section10', open: true }">
     <!-- Sidebar -->
     <div class="flex fixed top-0 z-50 h-screen">
@@ -537,6 +536,46 @@
                         class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
                         style="background-color: #c8e6b8ff"
                       >
+                        <img src="assets/file.svg" alt="Logo" class="w-5 h-5" />
+                      </div>
+
+                      <!-- Content on the right: Title, Description, and Go Button -->
+                      <div class="w-full">
+                        <div class="text-left mb-2">
+                          <!-- Title -->
+                          <div class="font-bold text-sm mb-2">課文分析</div>
+                          <!-- Description with line clamp -->
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            總結文章的修辭手法及從內容和技巧分析並生成段落大意&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </div>
+                        </div>
+                        <!-- Go Button -->
+                        <div class="text-right">
+                          <a
+                            href="#課文分析"
+                            #課文分析
+                            class="p-2 hover:bg-green-100 rounded text-xs border"
+                            style="
+                              color: rgb(70, 103, 53);
+                              border-color: rgb(70, 103, 53);
+                            "
+                            @click="activeSection = 'section3'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <!-- Logo with green background -->
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
                         <img
                           src="assets/document.svg"
                           alt="Logo"
@@ -571,46 +610,7 @@
                         </div>
                       </div>
                     </div>
-                    <div
-                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
-                    >
-                      <!-- Logo with green background -->
-                      <div
-                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
-                        style="background-color: #c8e6b8ff"
-                      >
-                        <img src="assets/file.svg" alt="Logo" class="w-5 h-5" />
-                      </div>
 
-                      <!-- Content on the right: Title, Description, and Go Button -->
-                      <div class="w-full">
-                        <div class="text-left mb-2">
-                          <!-- Title -->
-                          <div class="font-bold text-sm mb-2">課文分析</div>
-                          <!-- Description with line clamp -->
-                          <div class="text-xs line-clamp-3 text-gray-400">
-                            總結文章的修辭手法及從內容和技巧分析並生成段落大意&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          </div>
-                        </div>
-                        <!-- Go Button -->
-                        <div class="text-right">
-                          <a
-                            href="#課文分析"
-                            #課文分析
-                            class="p-2 hover:bg-green-100 rounded text-xs border"
-                            style="
-                              color: rgb(70, 103, 53);
-                              border-color: rgb(70, 103, 53);
-                            "
-                            @click="activeSection = 'section3'"
-                          >
-                            前往 &gt;
-                          </a>
-                        </div>
-                      </div>
-                    </div>
                     <div
                       class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
