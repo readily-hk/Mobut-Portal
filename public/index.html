@@ -6,9 +6,23 @@
     <title>v7-評改作文-(限時免費)</title>
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function checkURLParams() {
+        var queryString = window.location.search;
+
+        // Check if the query string is not empty
+        if (queryString.length > 0)
+          document.getElementById("test").style.display = "none";
+        else document.getElementById("test").style.display = "block";
+      }
+    </script>
   </head>
   <link rel="icon" type="image/png" href="assets/logo1.png" />
-  <body class="bg-white" x-data="{ activeSection: 'section10', open: true }">
+  <body
+    class="bg-white"
+    x-data="{ activeSection: 'section10', open: true }"
+    onload="checkURLParams()"
+  >
     <!-- Sidebar -->
     <div class="flex fixed top-0 z-50 h-screen">
       <!-- Static Column -->
@@ -279,6 +293,13 @@
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
       <body class="min-h-screen">
+        <div class="test" id="test" onload="">
+          <form onsubmit="">
+            <input type="text" name="name" placeholder="name" class="border" />
+            <button type="submit">submit</button>
+          </form>
+        </div>
+        <button onclick="checkURLParams()">test</button>
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
           <div x-show="activeSection === 'section1'" class="h-full">
