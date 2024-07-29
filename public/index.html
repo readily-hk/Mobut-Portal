@@ -15,6 +15,10 @@
           document.getElementById("test").style.display = "none";
         else document.getElementById("test").style.display = "block";
       }
+      /*  console.log("function start");
+        console.log("function running");
+        console.log("function done");
+      } */
     </script>
   </head>
   <link rel="icon" type="image/png" href="assets/logo1.png" />
@@ -292,14 +296,13 @@
       :class="open ? 'flex-1 ml-64 transition-margin duration-300 ' : 'flex-1 ml-16 transition-margin duration-300'"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
-      <body class="min-h-screen">
-        <div class="test" id="test" onload="">
+      <body class="min-h-screen" onload="">
+        <div class="test" id="test">
           <form onsubmit="">
             <input type="text" name="name" placeholder="name" class="border" />
             <button type="submit">submit</button>
           </form>
         </div>
-        <button onclick="checkURLParams()">test</button>
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
           <div x-show="activeSection === 'section1'" class="h-full">
