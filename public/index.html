@@ -11,8 +11,7 @@
         var queryString = window.location.search;
 
         // Check if the query string is not empty
-        if (queryString.length > 0)
-          document.getElementById("test").style.display = "none";
+        if (queryString) document.getElementById("test").style.display = "none";
         else document.getElementById("test").style.display = "block";
       }
       /*  console.log("function start");
