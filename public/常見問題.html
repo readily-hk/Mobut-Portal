@@ -264,7 +264,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#審題提示"
+                onclick="redirectToURL('審題提示.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section5', window.innerWidth < 768 ? open = false : null"
               >
@@ -319,8 +319,8 @@
     </div>
     <div
       x-show="activeSection === 'section13'"
-      class="main-content p-10 h-full flex-1"
-      :class="open ? 'ml-64' : 'ml-16'"
+      class="main-content p-10 h-full flex-1 duration-300"
+      :class="open ? 'ml-64' : 'ml-16 duration-300'"
       id="main-content"
     >
       <body>

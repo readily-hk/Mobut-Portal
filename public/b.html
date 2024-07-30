@@ -23,6 +23,12 @@
       a:hover {
         cursor: pointer;
       }
+      #sidebar {
+        transition: transform 0.5s ease;
+      }
+      .sidebar-closed {
+        transform: translateX(-100%);
+      }
     </style>
   </head>
   <body x-data="{ open: true }" class="overflow-hidden">
@@ -267,7 +273,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#審題提示"
+                onclick="redirectToURL('審題提示.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section5', window.innerWidth < 768 ? open = false : null"
               >
@@ -322,12 +328,13 @@
     </div>
     <div
       x-show="activeSection === 'section1'"
-      :class="open ? 'ml-64' : 'ml-16'"
-      class="main-content flex-1 p-6"
+      :class="open ? 'ml-64' : 'ml-16 duration-300'"
+      class="main-content flex-1 duration-300"
       id="main-content"
     >
       <iframe
-        src="https://tally.so/r/nP6DZP"
+        src=""
+        id="iframe"
         class="w-full h-screen"
         frameborder="0"
         marginheight="0"
@@ -336,4 +343,21 @@
       >
     </div>
   </body>
+  <script>
+    // Function to get URL parameters
+    function getUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      return params.toString();
+    }
+
+    // Function to set iframe src with URL parameters
+    function setIframeSrc() {
+      const iframe = document.getElementById("iframe");
+      const params = getUrlParams();
+      iframe.src = `https://tally.so/r/mJ0ov4/?${params}`;
+    }
+
+    // Set iframe src on page load
+    window.onload = setIframeSrc;
+  </script>
 </html>
