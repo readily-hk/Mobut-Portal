@@ -94,8 +94,8 @@
             <img src="assets/light.svg" alt="Light" class="w-5 h-5"
           /></a>
         </div>
-        <div class="p-4 cursor-pointer" title="實用文">
-          <a href="#實用文" @click="activeSection = 'section6'">
+        <div class="p-4 cursor-pointer" title="實用文擬題及範文生成">
+          <a href="#實用文擬題及範文生成" @click="activeSection = 'section6'">
             <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5"
           /></a>
         </div>
@@ -242,12 +242,12 @@
             </li>
             <li class="mb-2">
               <a
-                href="#實用文"
+                href="#實用文擬題及範文生成"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5" />
-                <span class="ml-2 text-sm">實用文</span>
+                <span class="ml-2 text-sm">實用文擬題及範文生成</span>
               </a>
             </li>
             <li class="mb-2">
@@ -721,7 +721,9 @@
                       <div class="w-full flex flex-col justify-between">
                         <div class="text-left mb-3">
                           <!-- Title -->
-                          <div class="font-bold text-sm mb-2">實用文</div>
+                          <div class="font-bold text-sm mb-2">
+                            實用文擬題及範文生成
+                          </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
                             根據2024DSE評核大綱，針對實用文考核部分生成題目及閱讀材料，以及相應範文
@@ -730,8 +732,8 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#實用文"
-                            #實用文
+                            href="#實用文擬題及範文生成"
+                            #實用文擬題及範文生成
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section6'"
                           >
