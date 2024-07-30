@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
+    <title>Document</title>
+    <script>
+      function redirectToURL(URL) {
+        var currentUrl = window.location.href;
+
+        // Define the new base URL (replace this with your target URL)
+        var newBaseUrl = URL;
+        // Redirect to the new URL while preserving the current query parameters
+        window.location.href = newBaseUrl + window.location.search;
+      }
+    </script>
+    <style>
+      a:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body x-data="{ open: true }">
+    <div class="flex fixed top-0 z-50 h-screen">
+      <!-- Static Column -->
+      <div
+        class="relative flex flex-col items-center bg-[#F5FAF6FF] h-screen w-16"
+      >
+        <!-- Icons (Placeholder for actual icons) -->
+        <div
+          @click="open = !open"
+          class="p-4 cursor-pointer transition-transform transform duration-300"
+          :class="open ? 'rotate-180' : ''"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </div>
+        <!--首頁 static bar-->
+        <div class="p-4 cursor-pointer" title="首頁">
+          <a
+            onclick="redirectToURL('index.html')"
+            @click="activeSection = 'section10'"
+          >
+            <img src="assets/home.svg" alt="File" class="w-5 h-5" />
+          </a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="v7 評改作文 (限時免費)">
+          <a
+            onclick="redirectToURL('a.html')"
+            @click="activeSection = 'section1'"
+          >
+            <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+          </a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="v7 評改作文">
+          <a
+            onclick="redirectToURL('b.html')"
+            @click="activeSection = 'section2'"
+          >
+            <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
+          </a>
+        </div>
+        <div class="p-4 cursor-pointer" title="老師創建表格">
+          <a
+            onclick="redirectToURL('c.html')"
+            @click="activeSection = 'section8'"
+          >
+            <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="片段寫作">
+          <a
+            onclick="redirectToURL('e.html')"
+            @click="activeSection = 'section11'"
+          >
+            <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="課文分析">
+          <a
+            onclick="redirectToURL('課文分析.html')"
+            @click="activeSection = 'section3'"
+          >
+            <img src="assets/file.svg" alt="File" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="範文生成">
+          <a
+            onclick="redirectToURL('範文生成.html')"
+            @click="activeSection = 'section4'"
+          >
+            <img src="assets/document.svg" alt="Document" class="w-5 h-5"
+          /></a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="審題提示">
+          <a
+            onclick="redirectToURL('審題提示.html')"
+            @click="activeSection = 'section5'"
+          >
+            <img src="assets/light.svg" alt="Light" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="實用文">
+          <a
+            onclick="redirectToURL('section6.html')"
+            @click="activeSection = 'section6'"
+          >
+            <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5"
+          /></a>
+        </div>
+        <div class="p-4 cursor-pointer" title="修辭例句">
+          <a
+            onclick="redirectToURL('修辭例句.html')"
+            @click="activeSection = 'section7'"
+          >
+            <img src="assets/wad.svg" alt="Wad" class="w-6 h-6"
+          /></a>
+        </div>
+
+        <div class="p-4 cursor-pointer" title="常見問題">
+          <a
+            onclick="redirectToURL('常見問題.html')"
+            @click="activeSection = 'section13'"
+          >
+            <img src="assets/questionmark.svg" alt="Upload" class="w-5 h-5"
+          /></a>
+        </div>
+      </div>
+
+      <!-- Expandable Sidebar -->
+      <div
+        x-show="open"
+        x-bind:class="open ? 'fixed inset-y-0 left-0 md:w-64 w-full bg-[#F5FAF6FF] border-r border-gray-200 transition-width duration-300 shadow-lg overflow-y-auto' : 'hidden'"
+        class="h-screen flex flex-col p-6"
+      >
+        <button
+          @click="open = false"
+          class="absolute top-0 right-0 m-4 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-transform transform hover:rotate-90 duration-300 hover:cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div class="flex items-center justify-center mb-6">
+          <a
+            onclick="redirectToURL('index.html')"
+            @click="activeSection = 'section10', window.innerWidth < 768 ? open = false : null"
+          >
+            <img src="assets/logo1.png" alt="Logo" class="w-20" />
+          </a>
+        </div>
+        <!-- Main Features -->
+        <ul class="mb-6">
+          <li class="mb-2">
+            <a
+              onclick="redirectToURL('index.html')"
+              class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+              @click="activeSection = 'section10', window.innerWidth < 768 ? open = false : null"
+            >
+              <img src="assets/home.svg" alt="File" class="w-5 h-5" />
+              <span class="ml-2 text-sm">首頁</span>
+            </a>
+          </li>
+        </ul>
+        <!-- 課堂後寫作評改工具 -->
+        <div class="mb-6">
+          <h2 class="text-gray-400 mb-4 text-xs">課堂後寫作評改工具</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('a.html')"
+                class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section1', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
+                <span class="ml-2 text-sm font-bold"
+                  >v7 評改作文 (限時免費)</span
+                >
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('b.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section2', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
+                <span class="ml-2 text-sm">v7 評改作文</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('c.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
+                <span class="ml-2 text-sm">老師創建表格</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('e.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5" />
+                <span class="ml-2 text-sm">片段寫作</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- 課堂前寫作評改工具 -->
+        <div class="mb-6">
+          <h2 class="text-gray-400 mb-4 text-xs">課堂前寫作教材準備工具</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('課文分析.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section3', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/file.svg" alt="File" class="w-5 h-5" />
+                <span class="ml-2 text-sm">課文分析</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('範文生成.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section4', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/document.svg" alt="Document" class="w-5 h-5" />
+                <span class="ml-2 text-sm">範文生成</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#審題提示"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section5', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/light.svg" alt="Light" class="w-5 h-5" />
+                <span class="ml-2 text-sm">審題提示</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('section6.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5" />
+                <span class="ml-2 text-sm">實用文</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('修辭例句.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section7', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/wad.svg" alt="Wad" class="w-6 h-6" />
+                <span class="ml-2 text-sm">修辭例句</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 其他資源 -->
+        <div>
+          <h2 class="text-gray-400 mb-4 text-xs">其他資源</h2>
+          <ul>
+            <li class="mb-2">
+              <a
+                onclick="redirectToURL('常見問題.html')"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section13', window.innerWidth < 768 ? open = false : null"
+              >
+                <img
+                  src="assets/questionmark.svg"
+                  alt="questionmark"
+                  class="w-5 h-5"
+                />
+                <span class="ml-2 text-sm">常見問題</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      x-show="activeSection === 'section7'"
+      :class="open ? 'ml-64' : 'ml-16'"
+      class="main-content flex-1"
+      id="main-content"
+    >
+      <iframe
+        src="https://tally.so/r/waxXMB"
+        class="w-full h-screen"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        >Loading…</iframe
+      >
+    </div>
+  </body>
+</html>

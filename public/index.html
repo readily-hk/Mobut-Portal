@@ -20,9 +20,27 @@
           document.getElementById("test").style.display = "none";
         else document.getElementById("test").style.display = "block";
       }
+      function redirectToURL(URL) {
+        var currentUrl = window.location.href;
+
+        // Define the new base URL (replace this with your target URL)
+        var newBaseUrl = URL;
+        // Redirect to the new URL while preserving the current query parameters
+        window.location.href = newBaseUrl + window.location.search;
+      }
     </script>
+    <style>
+      a:hover {
+        cursor: pointer;
+      }
+    </style>
   </head>
-  <link rel="icon" type="image/png" href="assets/logo1.png" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/logo1.png"
+    onclick="redirectToURL('index.html')"
+  />
   <body
     class="bg-white"
     x-data="{ activeSection: 'section10', open: true }"
@@ -57,61 +75,94 @@
         </div>
         <!--首頁 static bar-->
         <div class="p-4 cursor-pointer" title="首頁">
-          <a href="#首頁" @click="activeSection = 'section10'">
+          <a
+            onclick="redirectToURL('index.html')"
+            @click="activeSection = 'section10'"
+          >
             <img src="assets/home.svg" alt="File" class="w-5 h-5" />
           </a>
         </div>
 
         <div class="p-4 cursor-pointer" title="v7 評改作文 (限時免費)">
-          <a href="#v7-評改作文-(限時免費)" @click="activeSection = 'section1'">
+          <a
+            onclick="redirectToURL('a.html')"
+            @click="activeSection = 'section1'"
+          >
             <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
           </a>
         </div>
 
         <div class="p-4 cursor-pointer" title="v7 評改作文">
-          <a href="#v7-評改作文" @click="activeSection = 'section2'">
+          <a
+            onclick="redirectToURL('b.html')"
+            @click="activeSection = 'section2'"
+          >
             <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
           </a>
         </div>
         <div class="p-4 cursor-pointer" title="老師創建表格">
-          <a href="#老師創建表格" @click="activeSection = 'section8'">
+          <a
+            onclick="redirectToURL('c.html')"
+            @click="activeSection = 'section8'"
+          >
             <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
           /></a>
         </div>
         <div class="p-4 cursor-pointer" title="片段寫作">
-          <a href="#片段寫作" @click="activeSection = 'section11'">
+          <a
+            onclick="redirectToURL('e.html')"
+            @click="activeSection = 'section11'"
+          >
             <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
           /></a>
         </div>
         <div class="p-4 cursor-pointer" title="課文分析">
-          <a href="#課文分析" @click="activeSection = 'section3'">
+          <a
+            onclick="redirectToURL('課文分析.html')"
+            @click="activeSection = 'section3'"
+          >
             <img src="assets/file.svg" alt="File" class="w-5 h-5"
           /></a>
         </div>
         <div class="p-4 cursor-pointer" title="範文生成">
-          <a href="#範文生成" @click="activeSection = 'section4'">
+          <a
+            onclick="redirectToURL('範文生成.html')"
+            @click="activeSection = 'section4'"
+          >
             <img src="assets/document.svg" alt="Document" class="w-5 h-5"
           /></a>
         </div>
 
         <div class="p-4 cursor-pointer" title="審題提示">
-          <a href="#審題提示" @click="activeSection = 'section5'">
+          <a
+            onclick="redirectToURL('審題提示.html')"
+            @click="activeSection = 'section5'"
+          >
             <img src="assets/light.svg" alt="Light" class="w-5 h-5"
           /></a>
         </div>
         <div class="p-4 cursor-pointer" title="實用文">
-          <a href="#實用文" @click="activeSection = 'section6'">
+          <a
+            onclick="redirectToURL('section6.html')"
+            @click="activeSection = 'section6'"
+          >
             <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5"
           /></a>
         </div>
         <div class="p-4 cursor-pointer" title="修辭例句">
-          <a href="#修辭例句" @click="activeSection = 'section7'">
+          <a
+            onclick="redirectToURL('修辭例句.html')"
+            @click="activeSection = 'section7'"
+          >
             <img src="assets/wad.svg" alt="Wad" class="w-6 h-6"
           /></a>
         </div>
 
         <div class="p-4 cursor-pointer" title="常見問題">
-          <a href="#常見問題" @click="activeSection = 'section13'">
+          <a
+            onclick="redirectToURL('常見問題.html')"
+            @click="activeSection = 'section13'"
+          >
             <img src="assets/questionmark.svg" alt="Upload" class="w-5 h-5"
           /></a>
         </div>
@@ -125,7 +176,7 @@
       >
         <button
           @click="open = false"
-          class="absolute top-0 right-0 m-4 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-transform transform hover:rotate-90 duration-300"
+          class="absolute top-0 right-0 m-4 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-transform transform hover:rotate-90 duration-300 hover:cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +195,7 @@
         </button>
         <div class="flex items-center justify-center mb-6">
           <a
-            href="#首頁"
+            onclick="redirectToURL('index.html')"
             @click="activeSection = 'section10', window.innerWidth < 768 ? open = false : null"
           >
             <img src="assets/logo1.png" alt="Logo" class="w-20" />
@@ -154,7 +205,7 @@
         <ul class="mb-6">
           <li class="mb-2">
             <a
-              href="#首頁"
+              onclick="redirectToURL('index.html')"
               class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
               @click="activeSection = 'section10', window.innerWidth < 768 ? open = false : null"
             >
@@ -169,7 +220,7 @@
           <ul>
             <li class="mb-2">
               <a
-                href="#v7-評改作文-(限時免費)"
+                onclick="redirectToURL('a.html')"
                 class="flex items-center p-2 text-green-900 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section1', window.innerWidth < 768 ? open = false : null"
               >
@@ -181,7 +232,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#v7-評改作文"
+                onclick="redirectToURL('b.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section2', window.innerWidth < 768 ? open = false : null"
               >
@@ -191,7 +242,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#老師創建表格"
+                onclick="redirectToURL('c.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
               >
@@ -201,7 +252,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#片段寫作"
+                onclick="redirectToURL('e.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
               >
@@ -217,7 +268,7 @@
           <ul>
             <li class="mb-2">
               <a
-                href="#課文分析"
+                onclick="redirectToURL('課文分析.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section3', window.innerWidth < 768 ? open = false : null"
               >
@@ -227,7 +278,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#範文生成"
+                onclick="redirectToURL('範文生成.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section4', window.innerWidth < 768 ? open = false : null"
               >
@@ -247,7 +298,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#實用文"
+                onclick="redirectToURL('section6.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
               >
@@ -257,7 +308,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#修辭例句"
+                onclick="redirectToURL('修辭例句.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section7', window.innerWidth < 768 ? open = false : null"
               >
@@ -274,7 +325,7 @@
           <ul>
             <li class="mb-2">
               <a
-                href="#常見問題"
+                onclick="redirectToURL('常見問題.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section13', window.innerWidth < 768 ? open = false : null"
               >
@@ -352,115 +403,7 @@
         </div>
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
-          <div x-show="activeSection === 'section1'" class="h-full">
-            <iframe
-              src="https://trial.mo-but.com/"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section2'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/nP6DZP"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section3'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/mOPKqg"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section4'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/3xQLzd"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section11'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/w2reeb"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section5'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/mOPKxg"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div
-            x-show="activeSection === 'section6'"
-            class="h-full overflow-hidden"
-          >
-            <iframe
-              src="https://tally.so/r/nG1aPZ"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <div x-show="activeSection === 'section7'" class="h-full">
-            <iframe
-              src="https://tally.so/r/waxXMB"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
-          <!--Section 8: 老師創建表格-->
-          <div x-show="activeSection === 'section8'" class="h-full">
-            <iframe
-              src="https://teacher.mo-but.com/"
-              class="w-full h-screen"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              >Loading…</iframe
-            >
-          </div>
+
           <!--Section 10: Main Page-->
           <div x-show="activeSection === 'section10'" class="p-10 h-full">
             <!-- Main Content Area -->
@@ -519,9 +462,9 @@
                         <!-- Go Button -->
                         <div class="h-full flex justify-end">
                           <a
-                            href="#v7評改作文（限時免費）"
+                            onclick="redirectToURL('a.html')"
                             #v7評改作文（限時免費）
-                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)] h-fit w-fit"
+                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)] h-fit w-fit hover:cursor-pointer"
                             @click="activeSection = 'section1'"
                           >
                             前往 &gt;
@@ -555,9 +498,9 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#v7評改作文【老師上載】"
+                            onclick="redirectToURL('b.html')"
                             #v7評改作文
-                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
+                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)] hover:cursor-pointer"
                             @click="activeSection = 'section2'"
                           >
                             前往 &gt;
@@ -591,7 +534,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#老師創建表格【學生上載】"
+                            onclick="redirectToURL('c.html')"
                             #老師創建表格【學生上載】
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section8'"
@@ -629,9 +572,9 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#片段寫作"
+                            onclick="redirectToURL('e.html')"
                             #片段寫作
-                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
+                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)] hover:cursor-pointer"
                             @click="activeSection = 'section11'"
                           >
                             前往 &gt;
@@ -674,10 +617,9 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#課文分析"
+                            onclick="redirectToURL('課文分析.html')"
                             #課文分析
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
-                            @click="activeSection = 'section3'"
                           >
                             前往 &gt;
                           </a>
@@ -712,7 +654,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#範文生成"
+                            onclick="redirectToURL('範文生成.html')"
                             #範文生成
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section4'"
@@ -751,7 +693,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#審題提示"
+                            onclick="redirectToURL('審題提示.html')"
                             #審題提示
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section5'"
@@ -785,7 +727,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#實用文"
+                            onclick="redirectToURL('section6.html')"
                             #實用文
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section6'"
@@ -819,7 +761,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#修辭例句"
+                            onclick="redirectToURL('修辭例句.html')"
                             #修辭例句
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section7'"
@@ -869,8 +811,7 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#常見問題"
-                            #常見問題
+                            onclick="redirectToURL('常見問題.html')"
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section13'"
                           >
@@ -887,61 +828,6 @@
             </div>
           </div>
           <!-- Section 13: 常見問題 -->
-          <div x-show="activeSection === 'section13'" class="p-10 h-full">
-            <body>
-              <h2 class="text-2xl font-bold mb-4">常見問題 😯</h2>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  01. 有了「巫筆」後，教師的角色是什麼？
-                </h3>
-                <p class="text-gray-600">
-                  「巫筆」的定位是「教學輔助工具」，永遠無法取代教師。但有了「巫筆」後，教師能較容易給予個人化評語，而寫作課業也能夠有所跟進，讓學生多寫多練，更能夠提升寫作教學成效。
-                </p>
-              </div>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  02. 如「巫筆」報告結果不準確，或遇技術困難，應如何處理?
-                </h3>
-                <p class="text-gray-600">
-                  因「巫筆」仍在測試階段，尚待前線教師的專業意見，分享其教學成效。如學校於全級/全校使用，「巫筆」會提供專屬技術支援，如有掃描結果或評語不準確，謹此致歉，歡迎聯絡敝司職員。
-                </p>
-              </div>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  03. 學生能使用「巫筆」嗎?
-                </h3>
-                <p class="text-gray-600">
-                  目前「巫筆」是「教學輔助工具」，供教師備課及進行寫作評估之用，惟會因應學校需要，開放給學生直接使用。
-                </p>
-              </div>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  04. 有了「巫筆」之後，教師仍需要批改作文嗎?
-                </h3>
-                <p class="text-gray-600">
-                  「巫筆」只是小工具，能夠給予相對準確的評語，老師可以此為基礎修訂，加入眉批，並無法完全取代教師。而且，「巫筆」雖然能夠提供參考分數，但教師亦須作最後把關，並批改後續寫作跟進練習。
-                </p>
-              </div>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  05. 學生上載作文有困難，怎麼辦?
-                </h3>
-                <p class="text-gray-600">
-                  「巫筆」有提供作文上載指引，教師可根據指引指示學生上載作文，製作批改報告。
-                </p>
-              </div>
-              <div class="mb-6">
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                  06. 如果學校需要使用「巫筆」，應怎樣用最好?
-                </h3>
-                <p class="text-gray-600">
-                  教學方法千變萬化，因應校情不同，「巫筆」的使用方式也可不同。例如讓學生純自學，教師不會檢閱
-                  AI
-                  評語，讓學生自行消化而從中改進，不一而足。學校可與「巫筆」聘來的顧問進行會談，討論如何在學校開展人工智能批改計畫。
-                </p>
-              </div>
-            </body>
-          </div>
         </div>
       </body>
     </div>
