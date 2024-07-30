@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>v7-評改作文-(限時免費)</title>
+    <title>第七代批改作文-(限時免費)</title>
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -34,6 +34,17 @@
         cursor: pointer;
       }
     </style>
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "b98f2d54-e4b7-4482-b730-9a0687175b50";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
   </head>
   <link
     rel="icon"
@@ -83,7 +94,7 @@
           </a>
         </div>
 
-        <div class="p-4 cursor-pointer" title="v7 評改作文 (限時免費)">
+        <div class="p-4 cursor-pointer" title="第七代批改作文 (限時免費)">
           <a
             onclick="redirectToURL('a.html')"
             @click="activeSection = 'section1'"
@@ -92,7 +103,7 @@
           </a>
         </div>
 
-        <div class="p-4 cursor-pointer" title="v7 評改作文">
+        <div class="p-4 cursor-pointer" title="第七代批改作文">
           <a
             onclick="redirectToURL('b.html')"
             @click="activeSection = 'section2'"
@@ -226,7 +237,7 @@
               >
                 <img src="assets/clock.svg" alt="Clock" class="w-5 h-5" />
                 <span class="ml-2 text-sm font-bold"
-                  >v7 評改作文 (限時免費)</span
+                  >第七代批改作文 <br />(限時免費)</span
                 >
               </a>
             </li>
@@ -237,7 +248,7 @@
                 @click="activeSection = 'section2', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/pen.svg" alt="Pen" class="w-5 h-5" />
-                <span class="ml-2 text-sm">v7 評改作文</span>
+                <span class="ml-2 text-sm">第七代批改作文</span>
               </a>
             </li>
             <li class="mb-2">
@@ -257,7 +268,7 @@
                 @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5" />
-                <span class="ml-2 text-sm">片段寫作</span>
+                <span class="ml-2 text-sm">第七代片段寫作批改</span>
               </a>
             </li>
           </ul>
@@ -303,7 +314,7 @@
                 @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5" />
-                <span class="ml-2 text-sm">實用文</span>
+                <span class="ml-2 text-sm">實用文擬題及範文生成</span>
               </a>
             </li>
             <li class="mb-2">
@@ -452,7 +463,7 @@
                         <div class="text-left mb-3">
                           <!-- Title -->
                           <div class="font-bold text-sm mb-2">
-                            v7評改作文（限時免費）
+                            第七代批改作文 (限時免費)
                           </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
@@ -488,7 +499,7 @@
                         <div class="text-left mb-3">
                           <!-- Title -->
                           <div class="font-bold text-sm mb-2">
-                            v7評改作文【老師上載】
+                            第七代批改作文
                           </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
@@ -524,7 +535,7 @@
                         <div class="text-left mb-3">
                           <!-- Title -->
                           <div class="font-bold text-sm mb-2">
-                            老師創建表格【學生上載】
+                            第七代批改【老師創建表挌】【學生上載】
                           </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
@@ -563,7 +574,9 @@
                       <div class="w-full flex flex-col justify-between">
                         <div class="text-left mb-3">
                           <!-- Title -->
-                          <div class="font-bold text-sm mb-2">片段寫作</div>
+                          <div class="font-bold text-sm mb-2">
+                            第七代片段寫作批改
+                          </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
                             根據學習重點，即時批閱片段寫作，促進形成性評估及學習遷移;
@@ -718,7 +731,9 @@
                       <div class="w-full flex flex-col justify-between">
                         <div class="text-left mb-3">
                           <!-- Title -->
-                          <div class="font-bold text-sm mb-2">實用文</div>
+                          <div class="font-bold text-sm mb-2">
+                            實用文擬題及範文生成
+                          </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
                             根據2024DSE評核大綱，針對實用文考核部分生成題目及閱讀材料，以及相應範文
