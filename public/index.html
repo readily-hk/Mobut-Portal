@@ -6,7 +6,7 @@
     <title>「巫筆」綜合平台</title>
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
       window.$crisp = [];
       window.CRISP_WEBSITE_ID = "b98f2d54-e4b7-4482-b730-9a0687175b50";
       (function () {
@@ -65,7 +65,7 @@
   <body
     class="bg-white"
     x-data="{ activeSection: 'section10', open: true }"
-    onload="setURLParams()"
+    onload="setURLParams(), checkURLParams()"
   >
     <!-- Sidebar -->
     <div class="flex fixed top-0 z-50 h-screen">
