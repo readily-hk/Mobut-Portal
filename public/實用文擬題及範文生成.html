@@ -15,12 +15,6 @@
         // Redirect to the new URL while preserving the current query parameters
         window.location.href = newBaseUrl + window.location.search;
       }
-      function fillInForm() {
-        const school = new URLSearchParams(window.location.search).get(
-          "schoolname"
-        );
-        return "https://teacher.mo-but.com/" + "?schoolname=" + school;
-      }
     </script>
     <style>
       a:hover {
@@ -84,7 +78,7 @@
         </div>
         <div class="p-4 cursor-pointer" title="老師創建表格">
           <a
-            onclick="redirectToURL('c.html')"
+            onclick="redirectToURL('學生作文.html')"
             @click="activeSection = 'section8'"
           >
             <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
@@ -92,7 +86,7 @@
         </div>
         <div class="p-4 cursor-pointer" title="片段寫作">
           <a
-            onclick="redirectToURL('e.html')"
+            onclick="redirectToURL('片段寫作.html')"
             @click="activeSection = 'section11'"
           >
             <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
@@ -125,7 +119,7 @@
         </div>
         <div class="p-4 cursor-pointer" title="實用文">
           <a
-            onclick="redirectToURL('section6.html')"
+            onclick="redirectToURL('實用文擬題及範文生成.html')"
             @click="activeSection = 'section6'"
           >
             <img src="assets/pen1.svg" alt="Pencil" class="w-5 h-5"
@@ -224,7 +218,7 @@
             </li>
             <li class="mb-2">
               <a
-                onclick="redirectToURL('c.html')"
+                onclick="redirectToURL('學生作文.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
               >
@@ -234,7 +228,7 @@
             </li>
             <li class="mb-2">
               <a
-                onclick="redirectToURL('e.html')"
+                onclick="redirectToURL('片段寫作.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
               >
@@ -270,7 +264,7 @@
             </li>
             <li class="mb-2">
               <a
-                onclick="redirectToURL('審題提示.html')"
+                href="#審題提示"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section5', window.innerWidth < 768 ? open = false : null"
               >
@@ -280,7 +274,7 @@
             </li>
             <li class="mb-2">
               <a
-                onclick="redirectToURL('section6.html')"
+                onclick="redirectToURL('實用文擬題及範文生成.html')"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
                 @click="activeSection = 'section6', window.innerWidth < 768 ? open = false : null"
               >
@@ -324,9 +318,9 @@
       </div>
     </div>
     <div
-      x-show="activeSection === 'section8'"
+      x-show="activeSection === 'section6'"
       :class="open ? 'ml-64' : 'ml-16 duration-300'"
-      class="main-content flex-1 duration-300"
+      class="main-content flex-1 p-6 duration-300"
       id="main-content"
     >
       <iframe
@@ -350,7 +344,7 @@
     function setIframeSrc() {
       const iframe = document.getElementById("iframe");
       const params = getUrlParams();
-      iframe.src = `https://teacher.mo-but.com/?${params}`;
+      iframe.src = `https://tally.so/r/nG1aPZ/?${params}`;
     }
 
     // Set iframe src on page load
