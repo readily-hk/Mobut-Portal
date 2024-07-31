@@ -16,10 +16,57 @@
         s.async = 1;
         d.getElementsByTagName("head")[0].appendChild(s);
       })();
+      function checkURLParams() {
+        const queryString = new URLSearchParams(window.location.search);
+
+        if (
+          (!queryString.has("name") &&
+            !queryString.has("schoolname") &&
+            !queryString.has("email")) ||
+          !queryString.has("accessKey")
+        )
+          document.getElementById("test").style.display = "block";
+        else document.getElementById("test").style.display = "none";
+      }
+      function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return params.toString();
+      }
+      function setURLParams() {
+        const params = getUrlParams();
+        document.getElementById(
+          "section1"
+        ).src = `https://trial.mo-but.com/?${params}`;
+        document.getElementById(
+          "section2"
+        ).src = `https://v7.mo-but.com/?${params}`;
+        document.getElementById(
+          "section3"
+        ).src = `https://tally.so/r/mOPKqg/?${params}`;
+        document.getElementById(
+          "section4"
+        ).src = `https://tally.so/r/3xQLzd/?${params}`;
+        document.getElementById(
+          "section5"
+        ).src = `https://tally.so/r/mOPKxg/?${params}`;
+        document.getElementById(
+          "section6"
+        ).src = `https://tally.so/r/nG1aPZ/?${params}`;
+        document.getElementById(
+          "section7"
+        ).src = `https://tally.so/r/waxXMB/?${params}`;
+        document.getElementById(
+          "section8"
+        ).src = `https://teacher.mo-but.com/?${params}`;
+      }
     </script>
   </head>
   <link rel="icon" type="image/png" href="assets/logo1.png" />
-  <body class="bg-white" x-data="{ activeSection: 'section10', open: true }">
+  <body
+    class="bg-white"
+    x-data="{ activeSection: 'section10', open: true }"
+    onload="setURLParams()"
+  >
     <!-- Sidebar -->
     <div class="flex fixed top-0 z-50 h-screen">
       <!-- Static Column -->
@@ -68,12 +115,18 @@
             <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
           </a>
         </div>
-        <div class="p-4 cursor-pointer" title="第七代－批改作文【老師創建表格】【學生上載】">
+        <div
+          class="p-4 cursor-pointer"
+          title="第七代－批改作文【老師創建表格】【學生上載】"
+        >
           <a href="#老師創建表格" @click="activeSection = 'section8'">
             <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
           /></a>
         </div>
-        <div class="p-4 cursor-pointer" title="第七代－片段寫作批改【限時免費】">
+        <div
+          class="p-4 cursor-pointer"
+          title="第七代－片段寫作批改【限時免費】"
+        >
           <a href="#第七代片段寫作批改" @click="activeSection = 'section11'">
             <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
           /></a>
@@ -191,7 +244,9 @@
                 @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
-                <span class="ml-2 text-sm">第七代-批改作文<br />【老師創建表格】【學生上載】【限時免費】</span>
+                <span class="ml-2 text-sm"
+                  >第七代-批改作文<br />【老師創建表格】【學生上載】【限時免費】</span
+                >
               </a>
             </li>
             <li class="mb-2">
@@ -201,7 +256,9 @@
                 @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5" />
-                <span class="ml-2 text-sm">第七代－片段寫作批改<br />【限時免費】</span>
+                <span class="ml-2 text-sm"
+                  >第七代－片段寫作批改<br />【限時免費】</span
+                >
               </a>
             </li>
           </ul>
@@ -292,11 +349,70 @@
       :class="open ? 'flex-1 ml-64 transition-margin duration-300 ' : 'flex-1 ml-16 transition-margin duration-300'"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
-      <body class="min-h-screen">
+      <body class="min-h-screen" onload="checkURLParams()">
+        <div
+          id="test"
+          class="test w-screen h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50 hidden"
+          x-show="checkURLParams()"
+        >
+          <form
+            onsubmit="checkURLParams()"
+            class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 relative bg-white rounded-lg p-8 w-[70%] h-[60%] md:flex overflow-auto"
+          >
+            <div
+              class="flex flex-col md:w-1/2 md:border-r border-gray-300 pr-4 md:overflow-auto w-full"
+            >
+              <div class="mb-4">免費用戶</div>
+              <label for="name">學校名稱</label>
+              <input
+                type="text"
+                name="schoolname"
+                placeholder="學校名稱"
+                class="border mb-2"
+              />
+              <label for="schoolname">老師姓名</label>
+              <input
+                type="text"
+                name="teachername"
+                placeholder="老師姓名"
+                class="border mb-2"
+              />
+              <label for="email">電郵</label>
+              <input
+                type="text"
+                name="email"
+                placeholder="電郵"
+                class="border mb-4"
+              />
+            </div>
+
+            <div
+              class="flex flex-col mb-4 md:w-1/2 md:ml-4 md:pl-4 md:overflow-auto w-full mt-4 border-t border-gray-300 pt-4 md:pt-0 md:border-none md:mt-0"
+            >
+              <div class="mb-4">付費用戶</div>
+              <label for="accessKey">學校金匙</label>
+              <input
+                type="text"
+                name="accessKey"
+                placeholder="學校金匙"
+                class="border mb-4"
+              />
+            </div>
+            <div class="flex justify-end">
+              <button
+                type="submit"
+                class="border border-green-700 p-1.5 rounded-md text-green-700 hover:bg-green-700 hover:text-white transition-colors md:absolute md:bottom-6 md:right-6"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
           <div x-show="activeSection === 'section1'" class="h-full">
             <iframe
+              id="section1"
               src="https://trial.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
@@ -310,6 +426,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section2"
               src="https://v7.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
@@ -323,6 +440,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section3"
               src="https://tally.so/r/mOPKqg"
               class="w-full h-screen"
               frameborder="0"
@@ -336,6 +454,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section4"
               src="https://tally.so/r/3xQLzd"
               class="w-full h-screen"
               frameborder="0"
@@ -349,6 +468,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section11"
               src="https://tally.so/r/w2reeb"
               class="w-full h-screen"
               frameborder="0"
@@ -362,6 +482,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section5"
               src="https://tally.so/r/mOPKxg"
               class="w-full h-screen"
               frameborder="0"
@@ -375,6 +496,7 @@
             class="h-full overflow-hidden"
           >
             <iframe
+              id="section6"
               src="https://tally.so/r/nG1aPZ"
               class="w-full h-screen"
               frameborder="0"
@@ -385,6 +507,7 @@
           </div>
           <div x-show="activeSection === 'section7'" class="h-full">
             <iframe
+              id="section7"
               src="https://tally.so/r/waxXMB"
               class="w-full h-screen"
               frameborder="0"
@@ -396,6 +519,7 @@
           <!--Section 8: 老師創建表格-->
           <div x-show="activeSection === 'section8'" class="h-full">
             <iframe
+              id="section8"
               src="https://teacher.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
