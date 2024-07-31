@@ -16,9 +16,9 @@
         s.async = 1;
         d.getElementsByTagName("head")[0].appendChild(s);
       })();
-    </script>
 
-    <script defer>
+      let urlParamsSet = false;
+
       function setURLParams() {
         const params = getUrlParams();
         document.getElementById(
@@ -46,6 +46,7 @@
           "section8"
         ).src = `https://teacher.mo-but.com/?${params}`;
       }
+
       function checkURLParams() {
         const queryString = new URLSearchParams(window.location.search);
 
@@ -56,15 +57,22 @@
           queryString.has("accessKey")
         ) {
           document.getElementById("test").style.display = "none";
-          setURLParams();
-        } else document.getElementById("test").style.display = "block";
+          if (!urlParamsSet) {
+            setURLParams();
+            urlParamsSet = true;
+          }
+        } else {
+          document.getElementById("test").style.display = "block";
+        }
       }
+
       function getUrlParams() {
         const params = new URLSearchParams(window.location.search);
         return params.toString();
       }
     </script>
   </head>
+
   <link rel="icon" type="image/png" href="assets/logo1.png" />
   <body
     class="bg-white"
