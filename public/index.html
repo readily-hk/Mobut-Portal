@@ -8,9 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       function checkURLParams() {
-        var queryString = new URLSearchParams(window.location.search);
+        const queryString = new URLSearchParams(window.location.search);
 
-        // Check if the query string is not empty
         if (
           (queryString.has("name") &&
             queryString.has("schoolname") &&
@@ -21,12 +20,9 @@
         else document.getElementById("test").style.display = "block";
       }
       function redirectToURL(URL) {
-        var currentUrl = window.location.href;
+        const currentUrl = window.location.href;
 
-        // Define the new base URL (replace this with your target URL)
-        var newBaseUrl = URL;
-        // Redirect to the new URL while preserving the current query parameters
-        window.location.href = newBaseUrl + window.location.search;
+        window.location.href = URL + window.location.search;
       }
     </script>
     <style>
@@ -50,7 +46,7 @@
     rel="icon"
     type="image/png"
     href="assets/logo1.png"
-    onclick="redirectToURL('index.html')"
+    onclick="redirectToURL('/')"
   />
   <body
     class="bg-white"
@@ -86,10 +82,7 @@
         </div>
         <!--首頁 static bar-->
         <div class="p-4 cursor-pointer" title="首頁">
-          <a
-            onclick="redirectToURL('index.html')"
-            @click="activeSection = 'section10'"
-          >
+          <a onclick="redirectToURL('/')" @click="activeSection = 'section10'">
             <img src="assets/home.svg" alt="File" class="w-5 h-5" />
           </a>
         </div>
@@ -400,11 +393,11 @@
               class="flex flex-col mb-4 md:w-1/2 md:ml-4 md:pl-4 md:overflow-auto w-full mt-4 border-t border-gray-300 pt-4 md:pt-0 md:border-none md:mt-0"
             >
               <div class="mb-4">付費用戶</div>
-              <label for="accessKey">學校金匙 </label>
+              <label for="accessKey">學校金匙</label>
               <input
                 type="text"
                 name="accessKey"
-                placeholder="學校金匙1"
+                placeholder="學校金匙"
                 class="border mb-4"
               />
             </div>
