@@ -6,7 +6,7 @@
     <title>「巫筆」綜合平台</title>
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" defer>
+    <script type="text/javascript">
       window.$crisp = [];
       window.CRISP_WEBSITE_ID = "b98f2d54-e4b7-4482-b730-9a0687175b50";
       (function () {
@@ -16,22 +16,9 @@
         s.async = 1;
         d.getElementsByTagName("head")[0].appendChild(s);
       })();
-      function checkURLParams() {
-        const queryString = new URLSearchParams(window.location.search);
+    </script>
 
-        if (
-          (!queryString.has("name") &&
-            !queryString.has("schoolname") &&
-            !queryString.has("email")) ||
-          !queryString.has("accessKey")
-        )
-          document.getElementById("test").style.display = "block";
-        else document.getElementById("test").style.display = "none";
-      }
-      function getUrlParams() {
-        const params = new URLSearchParams(window.location.search);
-        return params.toString();
-      }
+    <script defer>
       function setURLParams() {
         const params = getUrlParams();
         document.getElementById(
@@ -59,13 +46,30 @@
           "section8"
         ).src = `https://teacher.mo-but.com/?${params}`;
       }
+      function checkURLParams() {
+        const queryString = new URLSearchParams(window.location.search);
+
+        if (
+          (queryString.has("name") &&
+            queryString.has("schoolname") &&
+            queryString.has("email")) ||
+          queryString.has("accessKey")
+        ) {
+          document.getElementById("test").style.display = "none";
+          setURLParams();
+        } else document.getElementById("test").style.display = "block";
+      }
+      function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return params.toString();
+      }
     </script>
   </head>
   <link rel="icon" type="image/png" href="assets/logo1.png" />
   <body
     class="bg-white"
     x-data="{ activeSection: 'section10', open: true }"
-    onload="setURLParams(), checkURLParams()"
+    onload="checkURLParams()"
   >
     <!-- Sidebar -->
     <div class="flex fixed top-0 z-50 h-screen">
@@ -349,14 +353,14 @@
       :class="open ? 'flex-1 ml-64 transition-margin duration-300 ' : 'flex-1 ml-16 transition-margin duration-300'"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
-      <body class="min-h-screen" onload="checkURLParams()">
+      <body class="min-h-screen" onload="">
         <div
           id="test"
-          class="test w-screen h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50 hidden"
+          class="test w-screen h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50"
           x-show="checkURLParams()"
         >
           <form
-            onsubmit="checkURLParams()"
+            onsubmit=""
             class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 relative bg-white rounded-lg p-8 w-[70%] h-[60%] md:flex overflow-auto"
           >
             <div
@@ -413,7 +417,6 @@
           <div x-show="activeSection === 'section1'" class="h-full">
             <iframe
               id="section1"
-              src="https://trial.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -423,11 +426,10 @@
           </div>
           <div
             x-show="activeSection === 'section2'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section2"
-              src="https://v7.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -437,11 +439,10 @@
           </div>
           <div
             x-show="activeSection === 'section3'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section3"
-              src="https://tally.so/r/mOPKqg"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -451,11 +452,10 @@
           </div>
           <div
             x-show="activeSection === 'section4'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section4"
-              src="https://tally.so/r/3xQLzd"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -465,11 +465,10 @@
           </div>
           <div
             x-show="activeSection === 'section11'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section11"
-              src="https://tally.so/r/w2reeb"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -479,11 +478,10 @@
           </div>
           <div
             x-show="activeSection === 'section5'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section5"
-              src="https://tally.so/r/mOPKxg"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -493,11 +491,10 @@
           </div>
           <div
             x-show="activeSection === 'section6'"
-            class="h-full overflow-hidden"
+            class="lazy-load h-full overflow-hidden"
           >
             <iframe
               id="section6"
-              src="https://tally.so/r/nG1aPZ"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -505,10 +502,9 @@
               >Loading…</iframe
             >
           </div>
-          <div x-show="activeSection === 'section7'" class="h-full">
+          <div x-show="activeSection === 'section7'" class="lazy-load h-full">
             <iframe
               id="section7"
-              src="https://tally.so/r/waxXMB"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -517,10 +513,9 @@
             >
           </div>
           <!--Section 8: 老師創建表格-->
-          <div x-show="activeSection === 'section8'" class="h-full">
+          <div x-show="activeSection === 'section8'" class="lazy-load h-full">
             <iframe
               id="section8"
-              src="https://teacher.mo-but.com/"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
