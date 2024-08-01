@@ -68,12 +68,18 @@
             <img src="assets/pen.svg" alt="questionBank" class="w-5 h-5" />
           </a>
         </div>
-        <div class="p-4 cursor-pointer" title="第七代－批改作文【老師創建表格】【學生上載】">
+        <div
+          class="p-4 cursor-pointer"
+          title="第七代－批改作文【老師創建表格】【學生上載】"
+        >
           <a href="#老師創建表格" @click="activeSection = 'section8'">
             <img src="assets/grid.svg" alt="Grid" class="w-5 h-5"
           /></a>
         </div>
-        <div class="p-4 cursor-pointer" title="第七代－片段寫作批改【限時免費】">
+        <div
+          class="p-4 cursor-pointer"
+          title="第七代－片段寫作批改【限時免費】"
+        >
           <a href="#第七代片段寫作批改" @click="activeSection = 'section11'">
             <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5"
           /></a>
@@ -191,7 +197,9 @@
                 @click="activeSection = 'section8', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/grid.svg" alt="Grid" class="w-5 h-5" />
-                <span class="ml-2 text-sm">第七代-批改作文<br />【老師創建表格】【學生上載】【限時免費】</span>
+                <span class="ml-2 text-sm"
+                  >第七代-批改作文<br />【老師創建表格】【學生上載】【限時免費】</span
+                >
               </a>
             </li>
             <li class="mb-2">
@@ -201,7 +209,9 @@
                 @click="activeSection = 'section11', window.innerWidth < 768 ? open = false : null"
               >
                 <img src="assets/aipaper.svg" alt="aipaper" class="w-5 h-5" />
-                <span class="ml-2 text-sm">第七代－片段寫作批改<br />【限時免費】</span>
+                <span class="ml-2 text-sm"
+                  >第七代－片段寫作批改<br />【限時免費】</span
+                >
               </a>
             </li>
           </ul>
@@ -410,46 +420,46 @@
             <div class="flex flex-col space-y-4">
               <!-- How to Use Button -->
               <div
-              class="flex justify-end pt-4"
-              x-data="{ videoModalOpen: false, videoSrc: 'https://www.youtube.com/embed/euNpNkkylYo' }"
-            >
-              <button
-                @click="videoModalOpen = true; videoSrc = 'https://www.youtube.com/embed/euNpNkkylYo'"
-                class="flex items-center text-gray-700 bg-gray-100 px-3 py-2 text-sm rounded space-x-1"
+                class="flex justify-end pt-4"
+                x-data="{ videoModalOpen: false, videoSrc: 'https://www.youtube.com/embed/euNpNkkylYo' }"
               >
-                <img
-                  src="assets/questionmark.svg"
-                  alt="questionmark"
-                  class="w-4 h-4 align-middle"
-                />
-                <span> 如何使用</span>
-              </button>
-
-              <!-- Video Modal -->
-              <div
-                x-show="videoModalOpen"
-                x-transition
-                x-cloak
-                class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-              >
-                <div
-                  class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-8 w-[62%] h-[65%] md:flex overflow-auto"
+                <button
+                  @click="videoModalOpen = true; videoSrc = 'https://www.youtube.com/embed/euNpNkkylYo'"
+                  class="flex items-center text-gray-700 bg-gray-100 px-3 py-2 text-sm rounded space-x-1"
                 >
-                  <button
-                    @click="videoModalOpen = false; videoSrc = ''"
-                    class="absolute top-0 right-0 mr-2 text-gray-500 hover:text-gray-700 text-3xl"
+                  <img
+                    src="assets/questionmark.svg"
+                    alt="questionmark"
+                    class="w-4 h-4 align-middle"
+                  />
+                  <span> 如何使用</span>
+                </button>
+
+                <!-- Video Modal -->
+                <div
+                  x-show="videoModalOpen"
+                  x-transition
+                  x-cloak
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+                >
+                  <div
+                    class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-8 w-[62%] h-[65%] md:flex overflow-auto"
                   >
-                    &times;
-                  </button>
-                  <iframe
-                    class="top-0 left-0 w-full h-full"
-                    :src="videoSrc"
-                    frameborder="0"
-                    allowfullscreen
-                  ></iframe>
+                    <button
+                      @click="videoModalOpen = false; videoSrc = ''"
+                      class="absolute top-0 right-0 mr-2 text-gray-500 hover:text-gray-700 text-3xl"
+                    >
+                      &times;
+                    </button>
+                    <iframe
+                      class="top-0 left-0 w-full h-full"
+                      :src="videoSrc"
+                      frameborder="0"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 </div>
               </div>
-            </div>
               <!-- big wrapper -->
               <div>
                 <!-- 課堂後寫作評改工具 wrapper-->
@@ -553,7 +563,7 @@
                         <div class="text-left mb-3">
                           <!-- Title -->
                           <div class="font-bold text-sm mb-2">
-                            第七代－批改作文【老師創建表挌】【學生上載】【限時免費】
+                            第七代－批改作文【老師創建表格】【學生上載】【限時免費】
                           </div>
                           <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
@@ -563,8 +573,8 @@
                         <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
-                            href="#第七代批改【老師創建表挌】【學生上載】"
-                            #第七代批改【老師創建表挌】【學生上載】
+                            href="#第七代批改【老師創建表格】【學生上載】"
+                            #第七代批改【老師創建表格】【學生上載】
                             class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
                             @click="activeSection = 'section8'"
                           >
