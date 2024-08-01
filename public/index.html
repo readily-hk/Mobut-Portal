@@ -539,9 +539,12 @@
             <!-- Main Content Area -->
             <div class="flex flex-col space-y-4">
               <!-- How to Use Button -->
-              <div class="flex justify-end hidden">
-                <!-- change display-none to hidden -->
+              <div
+                class="flex justify-end pt-4"
+                x-data="{ videoModalOpen: false, videoSrc: 'https://www.youtube.com/embed/euNpNkkylYo' }"
+              >
                 <button
+                  @click="videoModalOpen = true; videoSrc = 'https://www.youtube.com/embed/euNpNkkylYo'"
                   class="flex items-center text-gray-700 bg-gray-100 px-3 py-2 text-sm rounded space-x-1"
                 >
                   <img
@@ -551,12 +554,37 @@
                   />
                   <span> 如何使用</span>
                 </button>
+
+                <!-- Video Modal -->
+                <div
+                  x-show="videoModalOpen"
+                  x-transition
+                  x-cloak
+                  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+                >
+                  <div
+                    class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-8 w-[62%] h-[65%] md:flex overflow-auto"
+                  >
+                    <button
+                      @click="videoModalOpen = false; videoSrc = ''"
+                      class="absolute top-0 right-0 mr-2 text-gray-500 hover:text-gray-700 text-3xl"
+                    >
+                      &times;
+                    </button>
+                    <iframe
+                      class="top-0 left-0 w-full h-full"
+                      :src="videoSrc"
+                      frameborder="0"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
               </div>
               <!-- big wrapper -->
-              <div class="mb-8">
+              <div>
                 <!-- 課堂後寫作評改工具 wrapper-->
                 <div>
-                  <div class="flex flex-col space-y-4 font-bold pb-5 mt-10">
+                  <div class="flex flex-col space-y-4 font-bold">
                     課堂後寫作評改工具
                   </div>
                   <!-- 課堂後寫作評改工具 wrapper -->
