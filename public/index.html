@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>「巫筆」綜合平台</title>
+    <link rel="icon" type="image/png" href="assets/logo1.png" />
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
     <script src="//unpkg.com/alpinejs@2.x/dist/alpine.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript">
@@ -18,7 +24,6 @@
       })();
     </script>
   </head>
-  <link rel="icon" type="image/png" href="assets/logo1.png" />
   <body
     class="bg-white"
     x-data="{
@@ -58,7 +63,7 @@
     </script>
 
     <!-- Sidebar -->
-    <div class="flex fixed top-0 z-50 h-screen">
+    <div x-cloak class="flex fixed top-0 z-50 h-screen">
       <!-- Static Column -->
       <div
         class="relative flex flex-col items-center bg-[#F5FAF6FF] h-screen w-16"
@@ -66,7 +71,7 @@
         <!-- Icons (Placeholder for actual icons) -->
         <div
           @click="open = !open"
-          class="p-4 cursor-pointer transition-transform transform duration-300"
+          class="p-4 cursor-pointer"
           :class="open ? 'rotate-180' : ''"
         >
           <svg
@@ -168,7 +173,7 @@
       <!-- Expandable Sidebar -->
       <div
         x-show="open"
-        x-bind:class="open ? 'fixed inset-y-0 left-0 md:w-64 w-full bg-[#F5FAF6FF] border-r border-gray-200 transition-width duration-300 shadow-lg overflow-y-auto' : 'hidden'"
+        x-bind:class="open ? 'fixed inset-y-0 left-0 md:w-64 w-full bg-[#F5FAF6FF] border-r border-gray-200 shadow-lg overflow-y-auto' : 'hidden'"
         class="h-screen flex flex-col p-6"
       >
         <button
@@ -346,7 +351,7 @@
     <!-- Main Content -->
     <div
       id="main-content"
-      :class="open ? 'flex-1 ml-64 transition-margin duration-300 ' : 'flex-1 ml-16 transition-margin duration-300'"
+      :class="open ? 'flex-1 ml-64 transition-margin  ' : 'flex-1 ml-16 transition-margin '"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
       <body class="min-h-screen">
@@ -468,6 +473,7 @@
             <div class="flex flex-col space-y-4">
               <!-- How to Use Button -->
               <div
+                x-cloak
                 class="flex justify-end pt-4"
                 x-data="{ videoModalOpen: false, videoSrc: 'https://www.youtube.com/embed/euNpNkkylYo' }"
               >
