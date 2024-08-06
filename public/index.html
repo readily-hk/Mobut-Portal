@@ -16,8 +16,8 @@
       window.$crisp = [];
       window.CRISP_WEBSITE_ID = "b98f2d54-e4b7-4482-b730-9a0687175b50";
       (function () {
-        d = document;
-        s = d.createElement("script");
+        var d = document;
+        var s = d.createElement("script");
         s.src = "https://client.crisp.chat/l.js";
         s.async = 1;
         d.getElementsByTagName("head")[0].appendChild(s);
@@ -51,8 +51,7 @@
       if (window.innerWidth < 768) {
         this.open = false;
       }
-    }
-  }"
+    }"
     x-init="updateActiveSection()"
   >
     <script>
@@ -162,6 +161,11 @@
             <img src="assets/wad.svg" alt="Wad" class="w-6 h-6"
           /></a>
         </div>
+        <!-- <div class="p-4 cursor-pointer" title="手寫轉譯">
+          <a href="#手寫轉譯" @click="activeSection = 'section9'">
+            <img src="assets/upload.svg" alt="upload" class="w-6 h-6"
+          /></a>
+        </div> -->
 
         <div class="p-4 cursor-pointer" title="常見問題">
           <a href="#常見問題" @click="activeSection = 'section13'">
@@ -322,6 +326,16 @@
                 <span class="ml-2 text-sm">修辭例句</span>
               </a>
             </li>
+            <!-- <li class="mb-2">
+              <a
+                href="#手寫轉譯"
+                class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
+                @click="activeSection = 'section9', window.innerWidth < 768 ? open = false : null"
+              >
+                <img src="assets/upload.svg" alt="upload" class="w-6 h-6" />
+                <span class="ml-2 text-sm">手寫轉譯</span>
+              </a>
+            </li> -->
           </ul>
         </div>
 
@@ -354,12 +368,13 @@
       :class="open ? 'flex-1 ml-64 transition-margin  ' : 'flex-1 ml-16 transition-margin '"
     >
       <!-- Ensure the body or a main wrapper div is set to at least min-h-screen -->
-      <body class="min-h-screen">
+      <div class="min-h-screen">
         <div class="h-screen">
           <!-- This div is assumed to be the direct parent and takes up the full viewport height -->
           <div x-show="activeSection === 'section1'" class="h-full">
             <iframe
-              src="https://trial.mo-but.com/"
+              id="section1"
+              :src="activeSection === 'section1' ? iframes.section1 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -373,7 +388,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://v7.mo-but.com/"
+              id="section2"
+              :src="activeSection === 'section2' ? iframes.section2 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -386,7 +402,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://tally.so/r/mOPKqg"
+              id="section3"
+              :src="activeSection === 'section3' ? iframes.section3 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -399,7 +416,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://tally.so/r/3xQLzd"
+              id="section4"
+              :src="activeSection === 'section4' ? iframes.section4 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -412,7 +430,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://tally.so/r/w2reeb"
+              id="section11"
+              :src="activeSection === 'section11' ? iframes.section11 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -425,7 +444,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://tally.so/r/mOPKxg"
+              id="section5"
+              :src="activeSection === 'section5' ? iframes.section5 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -438,7 +458,8 @@
             class="h-full overflow-hidden"
           >
             <iframe
-              src="https://tally.so/r/nG1aPZ"
+              id="section6"
+              :src="activeSection === 'section6' ? iframes.section6 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -448,7 +469,8 @@
           </div>
           <div x-show="activeSection === 'section7'" class="h-full">
             <iframe
-              src="https://tally.so/r/waxXMB"
+              id="section7"
+              :src="activeSection === 'section7' ? iframes.section7 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -459,7 +481,8 @@
           <!--Section 8: 老師創建表格-->
           <div x-show="activeSection === 'section8'" class="h-full">
             <iframe
-              src="https://teacher.mo-but.com/"
+              id="section8"
+              :src="activeSection === 'section8' ? iframes.section8 : ''"
               class="w-full h-screen"
               frameborder="0"
               marginheight="0"
@@ -467,6 +490,18 @@
               >Loading…</iframe
             >
           </div>
+          <!--Section 9: 手寫轉譯-->
+          <!-- <div x-show="activeSection === 'section9'" class="h-full">
+            <iframe
+              id="section9"
+              :src="activeSection === 'section9' ? iframes.section9 : ''"
+              class="w-full h-screen"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              >Loading…</iframe
+            >
+          </div> -->
           <!--Section 10: Main Page-->
           <div x-show="activeSection === 'section10'" class="px-10 h-full">
             <!-- Main Content Area -->
@@ -869,6 +904,39 @@
                         </div>
                       </div>
                     </div>
+                    <!-- <div
+                      class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
+                    >
+                      <div
+                        class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
+                        style="background-color: #c8e6b8ff"
+                      >
+                        <img
+                          src="assets/upload.svg"
+                          alt="upload"
+                          class="w-5 h-5"
+                        />
+                      </div>
+
+                      <div class="w-full flex flex-col justify-between">
+                        <div class="text-left mb-3">
+                          <div class="font-bold text-sm mb-2">手寫轉譯</div>
+                          <div class="text-xs line-clamp-3 text-gray-400">
+                            幫助老師把學生手寫文字，轉寫成電腦字體
+                          </div>
+                        </div>
+                        <div class="flex justify-end">
+                          <a
+                            href="#手寫轉譯"
+                            #手寫轉譯
+                            class="p-2 hover:bg-[rgb(70,103,53)] hover:text-white rounded text-xs border text-[rgb(70,103,53)] border-[rgb(70,103,53)]"
+                            @click="activeSection = 'section7'"
+                          >
+                            前往 &gt;
+                          </a>
+                        </div>
+                      </div>
+                    </div> -->
                   </div>
                 </div>
 
@@ -928,7 +996,7 @@
           </div>
           <!-- Section 13: 常見問題 -->
           <div x-show="activeSection === 'section13'" class="p-10 h-full">
-            <body>
+            <div>
               <h2 class="text-2xl font-bold mb-4">常見問題 😯</h2>
               <div class="mb-6">
                 <h3 class="text-xl font-semibold mb-2 text-gray-800">
@@ -980,10 +1048,10 @@
                   評語，讓學生自行消化而從中改進，不一而足。學校可與「巫筆」聘來的顧問進行會談，討論如何在學校開展人工智能批改計畫。
                 </p>
               </div>
-            </body>
+            </div>
           </div>
         </div>
-      </body>
+      </div>
     </div>
   </body>
 </html>
