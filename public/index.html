@@ -185,11 +185,11 @@
             <img src="assets/wad.svg" alt="Wad" class="w-6 h-6"
           /></a>
         </div>
-        <!-- <div class="p-4 cursor-pointer" title="手寫轉譯">
+        <div class="p-4 cursor-pointer" title="手寫轉譯">
           <a href="#手寫轉譯" @click="activeSection = 'section9'">
             <img src="assets/upload.svg" alt="upload" class="w-6 h-6"
           /></a>
-        </div> -->
+        </div>
 
         <div class="p-4 cursor-pointer" title="常見問題">
           <a href="#常見問題" @click="activeSection = 'section13'">
@@ -350,7 +350,7 @@
                 <span class="ml-2 text-sm">修辭例句</span>
               </a>
             </li>
-            <!-- <li class="mb-2">
+            <li class="mb-2">
               <a
                 href="#手寫轉譯"
                 class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded"
@@ -359,7 +359,7 @@
                 <img src="assets/upload.svg" alt="upload" class="w-6 h-6" />
                 <span class="ml-2 text-sm">手寫轉譯</span>
               </a>
-            </li> -->
+            </li>
           </ul>
         </div>
 
@@ -515,7 +515,7 @@
             >
           </div>
           <!--Section 9: 手寫轉譯-->
-          <!-- <div x-show="activeSection === 'section9'" class="h-full">
+          <div x-show="activeSection === 'section9'" class="h-full">
             <iframe
               id="section9"
               :src="activeSection === 'section9' ? iframes.section9 : ''"
@@ -525,7 +525,7 @@
               marginwidth="0"
               >Loading…</iframe
             >
-          </div> -->
+          </div>
           <!--Section 10: Main Page-->
           <div x-show="activeSection === 'section10'" class="px-10 h-full">
             <!-- Main Content Area -->
@@ -928,9 +928,10 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div
+                    <div
                       class="flex space-x-4 rounded-lg shadow pt-4 pb-4 pr-4 pl-3"
                     >
+                      <!-- Logo with green background -->
                       <div
                         class="flex-shrink-0 flex items-center justify-center bg-green-200 w-10 h-10 rounded mt-2"
                         style="background-color: #c8e6b8ff"
@@ -942,13 +943,17 @@
                         />
                       </div>
 
+                      <!-- Content on the right: Title, Description, and Go Button -->
                       <div class="w-full flex flex-col justify-between">
                         <div class="text-left mb-3">
+                          <!-- Title -->
                           <div class="font-bold text-sm mb-2">手寫轉譯</div>
+                          <!-- Description with line clamp -->
                           <div class="text-xs line-clamp-3 text-gray-400">
-                            幫助老師把學生手寫文字，轉寫成電腦字體
+                            幫助老師把學生手寫字體，轉寫成電腦字體
                           </div>
                         </div>
+                        <!-- Go Button -->
                         <div class="flex justify-end">
                           <a
                             href="#手寫轉譯"
@@ -960,7 +965,7 @@
                           </a>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
                   </div>
                 </div>
 
